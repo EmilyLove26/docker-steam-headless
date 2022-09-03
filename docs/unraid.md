@@ -42,15 +42,17 @@ Unraid's Linux kernel by default does not have the modules required to support c
 ![](./images/unraid-steam-headless-install-uinput-plugin.png)
 2. The container will not be able to receive kernel events from the host unless the **Network Type:** is set to "*host*". Ensure that you container is configured this way.
 ![](./images/unraid-steam-headless-configure-network-as-host.png)
-> WARNING:
->
-> Be aware that, by default, this container requires at least 8083, 5900, 5901, 32123, and 2222 available for the WebUI, VNC, Web Audio, and SSH to work. It will also require any ports that Steam requires for Steam Remote Play.
 
-You can override the default ports used by the container with these variables:
-    - PORT_SSH (Default: 2222)
-    - PORT_VNC (Default: 5900)
-    - PORT_AUDIO_STREAM (Default: 5901)
-    - PORT_NOVNC_WEB (Default: 8083)
-    - PORT_AUDIO_WEBSOCKET (Default: 32123)
+    <span style="display:block;background-color:transparent;border-radius:4px;border-left:solid 5px red;padding:10px;">
+    <b>Warning:</b>
+    <br>Be aware that, by default, this container requires at least 8083, 5900, 5901, 32123, and 2222 available for the WebUI, VNC, Web Audio, and SSH to work. It will also require any ports that Steam requires for Steam Remote Play.
+    </span>
+
+    You can override the default ports used by the container with these variables:
+        - PORT_SSH (Default: 2222)
+        - PORT_VNC (Default: 5900)
+        - PORT_AUDIO_STREAM (Default: 5901)
+        - PORT_NOVNC_WEB (Default: 8083)
+        - PORT_AUDIO_WEBSOCKET (Default: 32123)
 
 3. No server restart is required, however. Ensure that the **steam-headless** Docker container is recreated after installing the **uinput** plugin for it to be able to detect the newly added module.
